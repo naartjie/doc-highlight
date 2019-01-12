@@ -4,7 +4,7 @@
     "dev": "nodemon --ext js,html ./src/index.js",
     "start": "node ./src/index.js"
   },
-  "author": "Marcin Jekot",
+  "author": "Marcin Jekot <marcin@jekot.net>",
   "devDependencies": {
     "nodemon": "^1.18.9"
   },
