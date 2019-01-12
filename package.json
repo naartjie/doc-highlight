@@ -1,0 +1,11 @@
+{
+  "name": "marcin-jekot",
+  "scripts": {
+    "dev": "nodemon ./server/index.js",
+    "start": "node ./server/index.js"
+  },
+  "author": "Marcin Jekot",
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
