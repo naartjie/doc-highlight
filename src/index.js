@@ -1,9 +1,12 @@
 const http = require('http')
+const fs = require('fs')
+const path = require('path')
 const { documents } = require('./data.json')
 const { PORT = 3000 } = process.env
 
-const html = require('fs').readFileSync('./server/index.html', 'utf-8').toString()
-const re = /\/documents\/(\d)/
+const indexHtml = path.join(__dirname, 'index.html')
+const html = fs.readFileSync(indexHtml, 'utf-8').toString()
+const re = /^\/documents\/(\d*)$/
 
 const route = path => {
   const [_x, idx = 0] = [] = path.match(re) || []
@@ -11,7 +14,7 @@ const route = path => {
 
   return {
     status: doc ? 200 : 404,
-    body: html.replace('{{document}}', doc || 'Oops, page not found'),
+    body: html.replace(/{{txt}}/g, doc || 'Oops, page not found'),
   }
 }
 
@@ -22,5 +25,4 @@ http
     res.writeHead(status, { 'Content-Type': 'text/html' })
     res.end(body)
   })
-  .listen(PORT, () =>
-    console.log(`server listening on http://localhost:${PORT}`))
+  .listen(PORT, () => console.log(`server listening on http://localhost:${PORT}`))

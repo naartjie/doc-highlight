@@ -1,11 +1,12 @@
 {
-  "name": "marcin-jekot",
+  "name": "doc-highlight",
   "scripts": {
-    "dev": "nodemon ./server/index.js",
-    "start": "node ./server/index.js"
+    "dev": "nodemon --ext js,html ./src/index.js",
+    "start": "node ./src/index.js"
   },
   "author": "Marcin Jekot",
   "devDependencies": {
     "nodemon": "^1.18.9"
-  }
+  },
+  "license": "MIT"
 }
